@@ -1,0 +1,64 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-sm-9 m-auto" *ngIf="!plan">
+      <h3>
+        <fa name="cog" animation="spin"></fa> Loading
+      </h3>
+    </div>
+    <div class="col-sm-9 m-auto" *ngIf="plan">
+      <h3 class="mb-5 mt-5">
+        <fa name="address-card"></fa>
+        Plan Details
+      </h3>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="float-left">{{plan.firstName}} {{plan.lastName}}</h5>
+          <div class="btn-group float-right">
+              <a routerLink="/editPlan/{{plan.planId}}" class="btn">
+                <fa name="edit"></fa>
+              </a>
+              <a routerLink="/delPlan/{{plan.planId}}" class="btn">
+                <fa name="trash"></fa>
+              </a>
+  
+            </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <img [src]="plan.gender=='GENT'?gentLogo:ladyLogo" class="img-fluid" />
+            </div>
+            <div class="col-md-9">
+<!-- 
+              <p>
+                {{plan.planId}}
+              </p>
+              <p>
+                <fa name="envelope"></fa> {{plan.emailId}}
+              </p> -->
+              
+                  <fa name="mobile"></fa> {{plan.mobileNumber}}
+                  Thank you for your interest.  Your  order  number  is 
+                  <script>
+                    function generateRandomNumber() {
+                        var min = 100
+                        var max = 10000
+                        var rand = Math.floor(Math.random()* (max - min + 1)) + min;
+                        document.write(rand)
+                      }
+                </script>
+                  Our  technicians  will  see  you  on  <p>
+                     <fa name="calendar"></fa> {{plan.dateOfConnection}}
+                    </p> some  time  in {{plan.timeSlot}}
+                
+              
+             
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
